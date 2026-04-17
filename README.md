@@ -6,19 +6,28 @@ An interactive, step-by-step cache simulator written in **Rust**. It models a wr
 
 ## FSM Diagram
 
-![Cache Controller FSM](https://github.com/user-attachments/assets/257faa7e-8938-4f14-ac71-37bb6f756107)
+![Cache Controller FSM](https://github.com/user-attachments/assets/ed5d85fe-eca8-40ec-8ed9-81bf0ffbb4bd)
 
 ---
 
 ## Cache Configuration
 
-| Parameter      | Value      |
-|----------------|------------|
-| Associativity  | 2-way      |
-| Sets           | 8          |
-| Block size     | 4 bytes    |
-| Total size     | 64 bytes   |
-| Address space  | 256 bytes  |
+By default, the cache parameters are hardcoded. To manually configure the cache, modify these lines in `src/main.rs`:
+
+```rust
+// Cache config (src/main.rs)
+let byte_offset = 2u32;
+let index_bits = 3u32;     // Generates 2^3 = 8 sets
+let associativity = 2u32;  // 2-way set-associativity
+```
+
+| Parameter      | Default Value |
+|----------------|---------------|
+| Associativity  | 2-way         |
+| Sets           | 8             |
+| Block size     | 4 bytes       |
+| Total size     | 64 bytes      |
+| Address space  | 256 bytes     |
 
 ---
 
